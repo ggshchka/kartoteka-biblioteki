@@ -5,7 +5,7 @@ case class Book(var author: String, var name: String, var publ: String, var type
 object Main {
 
   def main(args: Array[String]): Unit = {
-    val bufferOfBooks: List[Book] = List(
+    var bufferOfBooks: List[Book] = List(
       Book("Булгаков","Мастер и Маргарита","Азбука","Роман",true),
       Book("Булгаков","Собачье сердце","НИГМА","Роман",false),
       Book("Артемьева","История метафизики в России XVIII века","Науч",true),
@@ -84,10 +84,26 @@ object Main {
             val changeisAvaibCommand = readLine().toBoolean
             bufferOfBooks(changedBookNumCommand).typeOfBook = changeisAvaibCommand
         }
-//      case "3" => _
-//      case "4" => _
+      case "3" =>
+        println("Введите автора")
+        val authComm = readLine()
+        println("Введите название")
+        val nameComm = readLine()
+        println("Введите издательство")
+        val publComm = readLine()
+        println("Введите раздел")
+        val typeComm = readLine()
+        println("Введите наличие")
+        val isAvaiComm = readLine().toBoolean
+        bufferOfBooks = Book(authComm, nameComm, publComm, typeComm, isAvaiComm) :: bufferOfBooks
+
+      case "4" =>
+        bufferOfBooks.zipWithIndex.
+          foreach{case(a, b) => println(b + ". " + a)}
+        println("Введите номер книги:")
+        val deletedBookNumCommand = readLine().toInt
+        bufferOfBooks = bufferOfBooks.take(deletedBookNumCommand) ++ bufferOfBooks.drop(deletedBookNumCommand + 1)
 //      case "5" => _
-//      case "6" => _
       case _ => println("Ошибка")
     }
 
