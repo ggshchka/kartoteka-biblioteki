@@ -8,8 +8,9 @@ object Main {
     var bufferOfBooks: List[Book] = List(
       Book("Булгаков","Мастер и Маргарита","Азбука","Роман",true),
       Book("Булгаков","Собачье сердце","НИГМА","Роман",false),
-      Book("Артемьева","История метафизики в России XVIII века","Науч",true),
-      Book("Васильева","Отечественная философия","РАГС","Науч",false),
+      Book("Васильева","Отечественная философия","РАГС", "Науч" , false),
+
+      Book("Артемьева","История метафизики в России XVIII века", "РАГС", "Науч",true),
       Book("Скрипник","Управленческая деятельность: структура, функции, навыки персонала","Приор","Науч",true)
     )
     println("Библиотека")
@@ -82,7 +83,7 @@ object Main {
           case "5" =>
             println("Введите новое: (true или false)")
             val changeisAvaibCommand = readLine().toBoolean
-            bufferOfBooks(changedBookNumCommand).typeOfBook = changeisAvaibCommand
+            bufferOfBooks(changedBookNumCommand).isAvailable = changeisAvaibCommand
         }
       case "3" =>
         println("Введите автора")
