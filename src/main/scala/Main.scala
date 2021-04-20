@@ -85,6 +85,7 @@ object Main {
             val changeisAvaibCommand = readLine().toBoolean
             bufferOfBooks(changedBookNumCommand).isAvailable = changeisAvaibCommand
         }
+
       case "3" =>
         println("Введите автора")
         val authComm = readLine()
@@ -94,10 +95,11 @@ object Main {
         val publComm = readLine()
         println("Введите раздел")
         val typeComm = readLine()
-        println("Введите наличие")
+        println("Введите наличие (true или false)")
         val isAvaiComm = readLine().toBoolean
         bufferOfBooks = Book(authComm, nameComm, publComm, typeComm, isAvaiComm) :: bufferOfBooks
-
+        bufferOfBooks.zipWithIndex.
+          foreach{case(a, b) => println(b + ". " + a)}
       case "4" =>
         bufferOfBooks.zipWithIndex.
           foreach{case(a, b) => println(b + ". " + a)}
