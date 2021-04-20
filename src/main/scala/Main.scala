@@ -8,7 +8,7 @@ object Main {
     val bufferOfBooks: List[Book] = List(
       Book("Булгаков","Мастер и Маргарита","Азбука","Роман",true),
       Book("Булгаков","Собачье сердце","НИГМА","Роман",false),
-      Book("Артемьева","История метафизики в России XVIII века","Науч","",true),
+      Book("Артемьева","История метафизики в России XVIII века","Науч",true),
       Book("Васильева","Отечественная философия","РАГС","Науч",false),
       Book("Скрипник","Управленческая деятельность: структура, функции, навыки персонала","Приор","Науч",true)
     )
@@ -54,8 +54,20 @@ object Main {
 
 
       case "2" =>
-        for (el <- bufferOfBooks) {
-          println(el)
+        bufferOfBooks.zipWithIndex.
+          foreach{case(a, b) => println(b + ". " + a)}
+        println("Введите номер книги:")
+        val changedBookNumCommand = readLine().toInt
+        println("Менять:")
+        println("1 - автора")
+        println("2 - название")
+        println("3 - издательство")
+        println("4 - раздел")
+        println("5 - наличие")
+        val changedCommand = readLine()
+        changedCommand match {
+          case "1" =>
+            val changedAuthorCommand = readLine()
         }
 //      case "3" => _
 //      case "4" => _
