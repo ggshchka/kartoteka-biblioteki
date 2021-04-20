@@ -12,7 +12,6 @@ object Main {
       Book("Васильева","Отечественная философия","РАГС","Науч",false),
       Book("Скрипник","Управленческая деятельность: структура, функции, навыки персонала","Приор","Науч",true)
     )
-
     println("Библиотека")
     println("1 - Вывод книг")
     println("2 - Редактирование")
@@ -51,8 +50,6 @@ object Main {
             }
           case _ => println("Ошибка")
         }
-
-
       case "2" =>
         bufferOfBooks.zipWithIndex.
           foreach{case(a, b) => println(b + ". " + a)}
@@ -67,7 +64,21 @@ object Main {
         val changedCommand = readLine()
         changedCommand match {
           case "1" =>
-            val changedAuthorCommand = readLine()
+            println("Введите новое: ")
+            val changeAuthorCommand = readLine()
+
+          case "2" =>
+            println("Введите новое: ")
+            val changeNameCommand = readLine()
+          case "3" =>
+            println("Введите новое: ")
+            val changePublCommand = readLine()
+          case "4" =>
+            println("Введите новое: ")
+            val changeTypeCommand = readLine()
+          case "5" =>
+            println("Введите новое: (true или false)")
+            val changeisAvaibCommand = readLine().toBoolean
         }
 //      case "3" => _
 //      case "4" => _
