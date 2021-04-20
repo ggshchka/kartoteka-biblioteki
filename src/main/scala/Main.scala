@@ -1,6 +1,6 @@
 import scala.io.StdIn.readLine
 
-case class Book(author: String, name: String, publ: String, typeOfBook: String, isAvailable: Boolean)
+case class Book(var author: String, var name: String, var publ: String, var typeOfBook: String, var isAvailable: Boolean)
 
 object Main {
 
@@ -66,19 +66,23 @@ object Main {
           case "1" =>
             println("Введите новое: ")
             val changeAuthorCommand = readLine()
-
+            bufferOfBooks(changedBookNumCommand).author = changeAuthorCommand
           case "2" =>
             println("Введите новое: ")
             val changeNameCommand = readLine()
+            bufferOfBooks(changedBookNumCommand).name = changeNameCommand
           case "3" =>
             println("Введите новое: ")
             val changePublCommand = readLine()
+            bufferOfBooks(changedBookNumCommand).publ = changePublCommand
           case "4" =>
             println("Введите новое: ")
             val changeTypeCommand = readLine()
+            bufferOfBooks(changedBookNumCommand).typeOfBook = changeTypeCommand
           case "5" =>
             println("Введите новое: (true или false)")
             val changeisAvaibCommand = readLine().toBoolean
+            bufferOfBooks(changedBookNumCommand).typeOfBook = changeisAvaibCommand
         }
 //      case "3" => _
 //      case "4" => _
